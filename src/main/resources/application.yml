@@ -1,0 +1,35 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /${spring.application.name}
+
+spring:
+  application:
+    name: calculate-socre-service
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://localhost:3306/css_db?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&autoReconnect=true&useSSL=false&serverTimezone=GMT%2b8
+    username: root
+    password: mysql@2020
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    druid:
+      #连接池初始大小
+      initial-size: 50
+      #最大连接数量
+      max-active: 100
+      #最小连接数量
+      min-idle: 50
+      #获取连接最大等待时长，单位：ms
+      max-wait: 5000
+      #检测连接执行的sql
+      validation-query: select 1
+
+wx:
+  appId: wxa7b7abf03e251464
+  appSecret: 13c0bbe8ae65124b91ccb4f5d546b732
+  codeToSessionUrl: https://api.weixin.qq.com/sns/jscode2session
+  getUserInfoUrl: https://api.weixin.qq.com/shop/userinfo/get?access_token=%s
+  getAccessTokenUrl: https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=%s&secret=%s
+
+
+
